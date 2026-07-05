@@ -5,7 +5,8 @@ const siteMetadata = {
     region: 'Bayern',
     street: 'Pfarrhofstraße 7',
   },
-  description: 'Privatimkerei Hoffmann im Bayerischen Wald. Mein Name ist Renate Hoffmann, ich bin die Imkerin in unserem Familienbetrieb. Die Imkertradition geht in unserer Familie bis in das Jahr 1890 zurück.',
+  beekeepers: ['Renate Hoffmann', 'Michael Hoffmann'],
+  description: 'Privatimkerei Hoffmann im Bayerischen Wald. Die Imkerei wird von Renate Hoffmann und ihrem Sohn Michael Hoffmann als Familienbetrieb geführt. Die Imkertradition geht in unserer Familie bis in das Jahr 1890 zurück.',
   email: 'kontakt@privatimkerei-hoffmann.de',
   // TODO: Instagram-Handle bestätigen und ggf. hier anpassen
   instagramUrl: 'https://www.instagram.com/privatimkerei.hoffmann/',

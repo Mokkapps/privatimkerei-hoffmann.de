@@ -16,7 +16,7 @@ export interface Product {
 
 // Preise zentral pflegen – Änderungen wirken sich automatisch auf
 // Produktkarten und Schema.org-Produktdaten aus.
-// TODO: Preise mit Renate abstimmen (aktuell marktübliche Richtwerte).
+// TODO: Preise mit der Familie abstimmen (aktuell marktübliche Richtwerte).
 export const products: Array<Product> = [
   {
     badge: 'Nettegold',

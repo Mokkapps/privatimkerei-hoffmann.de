@@ -8,7 +8,7 @@ const faqItems = [
     slot: 'konsistenz',
   },
   {
-    label: 'Wie ernte ich den Honig?',
+    label: 'Wie ernten wir den Honig?',
     slot: 'honigschleuder',
   },
   {
@@ -26,13 +26,13 @@ const traditionItems = [
   },
   {
     date: 'Vom Hobby zum Familienbetrieb',
-    description: 'Was als Hobby begann, wächst immer mehr zu einem Familienbetrieb heran – mit viel Liebe zur Honigbiene und großem Pflegeaufwand.',
+    description: 'Was als Hobby begann, wächst immer mehr zu einem Familienbetrieb heran – heute führen Renate und Michael die Imkerei gemeinsam mit viel Liebe zur Honigbiene und großem Pflegeaufwand.',
     icon: 'i-heroicons-heart',
     title: 'Mit Leidenschaft',
   },
   {
     date: 'Heute',
-    description: 'Ich imkere zu 100% regional im Landkreis Regen & Straubing-Bogen im Bayerischen Wald – nachhaltig und ohne Medikamenteneinsatz.',
+    description: 'Wir imkern zu 100% regional im Landkreis Regen & Straubing-Bogen im Bayerischen Wald – nachhaltig und ohne Medikamenteneinsatz.',
     icon: 'i-heroicons-map-pin',
     title: 'Regional & nachhaltig',
   },
@@ -48,7 +48,7 @@ const galleryImages = [
     src: '/images/galerie-bayerischer-wald.webp',
   },
   {
-    alt: 'Imkerin hebt eine Bienenwabe aus dem Bienenstock',
+    alt: 'Imker hebt eine Bienenwabe aus dem Bienenstock',
     src: '/images/galerie-imkerarbeit.webp',
   },
   {
@@ -60,7 +60,7 @@ const galleryImages = [
 const ctaLinks = ref([
   {
     icon: 'i-heroicons-envelope',
-    label: 'Kontaktieren Sie mich',
+    label: 'Kontaktieren Sie uns',
     size: 'xl',
     target: '_blank',
     to: `mailto:${siteMetadata.email}`,
@@ -116,7 +116,7 @@ defineOgImageComponent('NuxtSeo', {
     <UPageHero
       :links="[
         { label: 'Zu den Produkten', icon: 'i-heroicons-shopping-bag', size: 'xl', to: '/#products' },
-        { label: 'Kontaktieren Sie mich', icon: 'i-heroicons-envelope', size: 'xl', color: 'neutral', variant: 'outline', to: '/#contact' },
+        { label: 'Kontaktieren Sie uns', icon: 'i-heroicons-envelope', size: 'xl', color: 'neutral', variant: 'outline', to: '/#contact' },
       ]"
       orientation="horizontal"
     >
@@ -128,7 +128,7 @@ defineOgImageComponent('NuxtSeo', {
 
       <nuxt-img
         src="/me.jpg"
-        alt="Imkerin Renate Hoffmann von der Privatimkerei Hoffmann"
+        alt="Renate und Michael Hoffmann von der Privatimkerei Hoffmann"
         class="w-full rounded-md shadow-xl"
       />
 
@@ -146,14 +146,14 @@ defineOgImageComponent('NuxtSeo', {
       <template #title>
         <div class="flex flex-col">
           <span>Hallo!</span>
-          <span>Mein Name ist Renate Hoffmann.</span>
+          <span>Wir sind Renate und Michael Hoffmann.</span>
         </div>
       </template>
 
       <template #description>
         <div class="flex flex-col gap-2">
           <p>
-            Ich bin die Imkerin in unserer <strong>Privatimkerei Hoffmann</strong> im Bayerischen Wald.
+            Gemeinsam führen wir unsere <strong>Privatimkerei Hoffmann</strong> im Bayerischen Wald – Renate und ihr Sohn Michael.
           </p>
           <p>
             Die Imkertradition geht in unserer Familie bis in das <strong>Jahr 1890</strong> zurück.
@@ -162,7 +162,7 @@ defineOgImageComponent('NuxtSeo', {
             Was als Hobby begann, wächst nun immer mehr zu einem <strong>Familienbetrieb</strong> heran.
           </p>
           <p>
-            Mit viel <strong>Liebe zur Honigbiene</strong> und großem Pflegeaufwand arbeite ich auf eine nachhaltige Weise mit und an <strong>gesunden Honigbienen</strong>, denn nur gesunde Honigbienen sind ein Garant für unsere Zukunft.
+            Mit viel <strong>Liebe zur Honigbiene</strong> und großem Pflegeaufwand arbeiten wir auf eine nachhaltige Weise mit und an <strong>gesunden Honigbienen</strong>, denn nur gesunde Honigbienen sind ein Garant für unsere Zukunft.
           </p>
         </div>
       </template>
@@ -188,7 +188,7 @@ defineOgImageComponent('NuxtSeo', {
     </UPageSection>
 
     <UPageSection
-      title="Meine Grundsätze"
+      title="Unsere Grundsätze"
       icon="i-heroicons-star"
     >
       <UPageGrid
@@ -222,7 +222,7 @@ defineOgImageComponent('NuxtSeo', {
         </UPageCard>
         <UPageCard
           title="100% regionaler Honig"
-          description="Ich imkere nur im Landkreis Regen & Straubing-Bogen"
+          description="Wir imkern nur im Landkreis Regen & Straubing-Bogen"
           color="primary"
           spotlight
           spotlight-color="primary"
@@ -238,11 +238,11 @@ defineOgImageComponent('NuxtSeo', {
 
     <UPageSection
       icon="i-heroicons-shopping-cart"
-      title="Meine Produkte"
+      title="Unsere Produkte"
     >
       <template #description>
         <p id="products">
-          Alle Produkte stammen direkt aus unserer Imkerei im Bayerischen Wald. Bestellungen nehme ich gerne telefonisch oder per E-Mail entgegen – Abholung nach Absprache.
+          Alle Produkte stammen direkt aus unserer Imkerei im Bayerischen Wald. Bestellungen nehmen wir gerne telefonisch oder per E-Mail entgegen – Abholung nach Absprache.
         </p>
       </template>
 
@@ -333,10 +333,10 @@ defineOgImageComponent('NuxtSeo', {
     >
       <template #description>
         <p id="knowledge">
-          In unserer Imkerei verwende ich zum Kampf gegen die Varroa-Milbe ausschließlich biologische Säuren (Ameisensäure, Milchsäure und Oxalsäure). Diese Säuren sind für die Milben tödlich, werden aber von den Bienen, bei korrekter Handhabung, gut vertragen.
+          In unserer Imkerei verwenden wir zum Kampf gegen die Varroa-Milbe ausschließlich biologische Säuren (Ameisensäure, Milchsäure und Oxalsäure). Diese Säuren sind für die Milben tödlich, werden aber von den Bienen, bei korrekter Handhabung, gut vertragen.
         </p>
         <p class="font-bold">
-          Der Einsatz von Medikamenten findet bei mir generell nicht statt!
+          Der Einsatz von Medikamenten findet bei uns generell nicht statt!
         </p>
       </template>
 
@@ -371,7 +371,7 @@ defineOgImageComponent('NuxtSeo', {
             <div>
               <p>Honig ist seit vielen Jahrhunderten eine kostbare Substanz und die Entstehung ist ein langwieriger Prozess. Insgesamt fliegt die Biene für ein Glas Honig dreimal um die Welt. Eine Biene fliegt mehrere hundert Blüten an und sammelt in ihrer Honigblase den süßen Saft. Im Bienenstock übergibt die Sammlerin diesen Saft den Stockbienen. Um den Wassergehalt zu reduzieren, fügt die Stockbiene dem Saft körpereigene Substanzen hinzu und wandelt ihn so in Honig um. Anschließend wird der Honig in den Waben eingelagert und dient dem Volk als Wintervorrat. Der Imker darf erst Honig entnehmen, wenn die Bienen mehr einlagern, als sie selbst als Nahrung benötigen. Zur Honiggewinnung wird der Honig aus der Wabe geschleudert. Die Waben werden anschließend den Bienen zurückgegeben, damit sie neuen Honig einlagern können.</p>
               <p class="font-bold mt-4">
-                Mein Honig wird kalt geschleudert, gesiebt (eventuell noch cremig gerührt) und in Gläser abgefüllt.
+                Unser Honig wird kalt geschleudert, gesiebt (eventuell noch cremig gerührt) und in Gläser abgefüllt.
                 Es ist ein reines Naturprodukt ohne irgendwelche Zusätze.
               </p>
             </div>
@@ -426,7 +426,7 @@ defineOgImageComponent('NuxtSeo', {
       id="contact"
       title="Kontakt"
       variant="soft"
-      description="Ich freue mich über Ihre Anfrage!"
+      description="Wir freuen uns über Ihre Anfrage!"
       :links="ctaLinks"
       orientation="horizontal"
     >
@@ -470,9 +470,12 @@ defineOgImageComponent('NuxtSeo', {
 
       <template #description>
         <div class="flex flex-col gap-2">
-          <span class="text-xl">Ich freue mich auf Ihre Anfrage!</span>
+          <span class="text-xl">Wir freuen uns auf Ihre Anfrage!</span>
           <div class="flex flex-col text-sm">
-            <span>Renate Hoffmann</span>
+            <span
+              v-for="beekeeper in siteMetadata.beekeepers"
+              :key="beekeeper"
+            >{{ beekeeper }}</span>
             <span>{{ siteMetadata.address.street }}</span>
             <span>{{ siteMetadata.address.postalCode }} {{ siteMetadata.address.locality }}</span>
             <span>Telefon: <NuxtLink
