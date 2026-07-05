@@ -10,6 +10,18 @@ Renate Hoffmann\
 Pfarrhofstraße 7\
 94267 Prackenbach
 
+## Standorte
+
+Renate Hoffmann\
+Pfarrhofstraße 7\
+94267 Prackenbach
+
+Michael Hoffmann\
+Siegersdorf 18\
+94371 Rattenberg
+
+An beiden Standorten stehen Bienen unserer Imkerei.
+
 ## Kontakt
 
 Telefon: [09944/2283](tel:09944/2283)\

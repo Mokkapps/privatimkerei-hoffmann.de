@@ -73,6 +73,18 @@ export default defineNuxtConfig({
       },
       'description': siteMetadata.description,
       'email': siteMetadata.email,
+      'location': siteMetadata.locations.map(location => ({
+        '@type': 'Place',
+        'address': {
+          '@type': 'PostalAddress',
+          addressCountry: 'DE',
+          addressLocality: location.locality,
+          addressRegion: location.region,
+          postalCode: location.postalCode,
+          streetAddress: location.street,
+        },
+        'name': location.name,
+      })),
       'logo': `${siteMetadata.twicPicsBaseUrl}/logo.png`,
       'name': siteMetadata.title,
       'sameAs': [siteMetadata.instagramUrl],

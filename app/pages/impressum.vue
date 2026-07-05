@@ -4,7 +4,7 @@ import siteMetadata from '~/siteMetadata'
 const value = await queryCollection('pages').path('/pages/imprint').first()
 
 useSeoMeta({
-  description: 'Impressum der Privatimkerei Hoffmann in Prackenbach – Angaben gemäß § 5 TMG, Kontakt und Haftungshinweise.',
+  description: 'Impressum der Privatimkerei Hoffmann – Angaben gemäß § 5 TMG, Kontakt und Haftungshinweise.',
   robots: 'noindex, follow',
   title: 'Impressum',
 })

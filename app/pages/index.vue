@@ -32,7 +32,7 @@ const traditionItems = [
   },
   {
     date: 'Heute',
-    description: 'Wir imkern zu 100% regional im Landkreis Regen & Straubing-Bogen im Bayerischen Wald – nachhaltig und ohne Medikamenteneinsatz.',
+    description: 'Wir imkern an zwei Standorten im Landkreis Regen & Straubing-Bogen im Bayerischen Wald – nachhaltig und ohne Medikamenteneinsatz.',
     icon: 'i-heroicons-map-pin',
     title: 'Regional & nachhaltig',
   },
@@ -78,8 +78,13 @@ const ctaLinks = ref([
 
 const { public: { googleMapsApiKey } } = useRuntimeConfig()
 
-const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?key=${googleMapsApiKey}
-    &q=Pfarrhofstraße+7,94267+Prackenbach`
+function googleMapsEmbedUrl (mapsQuery: string) {
+  return `https://www.google.com/maps/embed/v1/place?key=${googleMapsApiKey}&q=${mapsQuery}`
+}
+
+function googleMapsSearchUrl (mapsQuery: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`
+}
 
 useSeoMeta({
   description: siteMetadata.description,
@@ -153,7 +158,7 @@ defineOgImageComponent('NuxtSeo', {
       <template #description>
         <div class="flex flex-col gap-2">
           <p>
-            Gemeinsam führen wir unsere <strong>Privatimkerei Hoffmann</strong> im Bayerischen Wald – Renate und ihr Sohn Michael.
+            Gemeinsam führen wir unsere <strong>Privatimkerei Hoffmann</strong> im Bayerischen Wald – Renate und ihr Sohn Michael, an zwei Standorten in Prackenbach und Rattenberg.
           </p>
           <p>
             Die Imkertradition geht in unserer Familie bis in das <strong>Jahr 1890</strong> zurück.
@@ -222,7 +227,7 @@ defineOgImageComponent('NuxtSeo', {
         </UPageCard>
         <UPageCard
           title="100% regionaler Honig"
-          description="Wir imkern nur im Landkreis Regen & Straubing-Bogen"
+          description="Wir imkern an zwei Standorten im Landkreis Regen & Straubing-Bogen"
           color="primary"
           spotlight
           spotlight-color="primary"
@@ -430,54 +435,64 @@ defineOgImageComponent('NuxtSeo', {
       :links="ctaLinks"
       orientation="horizontal"
     >
-      <UPageCard
-        title="Standort"
-      >
-        <template #description>
-          <iframe
-            v-if="googleMapsApiKey"
-            class="w-full md:max-w-[600px] h-[450px] border-0"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Standort der Privatimkerei Hoffmann auf Google Maps"
-            :src="googleMapsUrl"
-          />
-          <div
-            v-else
-            class="flex flex-col gap-4"
-          >
-            <img
-              src="/images/galerie-bayerischer-wald.webp"
-              alt="Bienenstöcke auf einer Wiese im Bayerischen Wald"
-              loading="lazy"
-              width="1280"
-              height="960"
-              class="w-full md:max-w-[600px] rounded-md object-cover"
-            >
-            <UButton
-              icon="i-heroicons-map-pin"
-              to="https://www.google.com/maps/search/?api=1&query=Pfarrhofstraße+7,94267+Prackenbach"
-              target="_blank"
-              variant="outline"
-              color="neutral"
-            >
-              Auf Google Maps öffnen
-            </UButton>
-          </div>
-        </template>
-      </UPageCard>
+      <UPageGrid>
+        <UPageCard
+          v-for="location in siteMetadata.locations"
+          :key="location.mapsQuery"
+          :title="location.name"
+        >
+          <template #description>
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col text-sm">
+                <span>{{ location.street }}</span>
+                <span>{{ location.postalCode }} {{ location.locality }}</span>
+              </div>
+
+              <iframe
+                v-if="googleMapsApiKey"
+                class="w-full h-[300px] border-0 rounded-md"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                :title="`Standort ${location.name} auf Google Maps`"
+                :src="googleMapsEmbedUrl(location.mapsQuery)"
+              />
+              <UButton
+                v-else
+                icon="i-heroicons-map-pin"
+                :to="googleMapsSearchUrl(location.mapsQuery)"
+                target="_blank"
+                variant="outline"
+                color="neutral"
+                block
+              >
+                Auf Google Maps öffnen
+              </UButton>
+            </div>
+          </template>
+        </UPageCard>
+      </UPageGrid>
+
+      <p class="text-sm text-muted text-center">
+        An beiden Standorten stehen Bienen unserer Imkerei.
+      </p>
 
       <template #description>
         <div class="flex flex-col gap-2">
           <span class="text-xl">Wir freuen uns auf Ihre Anfrage!</span>
-          <div class="flex flex-col text-sm">
-            <span
-              v-for="beekeeper in siteMetadata.beekeepers"
-              :key="beekeeper"
-            >{{ beekeeper }}</span>
-            <span>{{ siteMetadata.address.street }}</span>
-            <span>{{ siteMetadata.address.postalCode }} {{ siteMetadata.address.locality }}</span>
+          <div class="flex flex-col gap-4 text-sm">
+            <div
+              v-for="location in siteMetadata.locations"
+              :key="location.mapsQuery"
+              class="flex flex-col"
+            >
+              <span class="font-medium">{{ location.name }}</span>
+              <span>{{ location.street }}</span>
+              <span>{{ location.postalCode }} {{ location.locality }}</span>
+            </div>
+
+            <USeparator />
+
             <span>Telefon: <NuxtLink
               :to="`tel:${siteMetadata.phone}`"
               class="text-primary underline"
