@@ -3,6 +3,12 @@ import siteMetadata from '~/siteMetadata'
 
 const value = await queryCollection('pages').path('/pages/imprint').first()
 
+useSeoMeta({
+  description: 'Impressum der Privatimkerei Hoffmann in Prackenbach – Angaben gemäß § 5 TMG, Kontakt und Haftungshinweise.',
+  robots: 'noindex, follow',
+  title: 'Impressum',
+})
+
 defineOgImageComponent('NuxtSeo', {
   description: 'Impressum',
   theme: '#B29712',
@@ -18,7 +24,7 @@ defineOgImageComponent('NuxtSeo', {
         <UPageBody prose>
           <ContentRenderer :value="value" />
         </UPageBody>
-      </upage>
+      </UPage>
     </UContainer>
   </UMain>
 </template>

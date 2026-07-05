@@ -1,9 +1,20 @@
-import { defineOrganization } from 'nuxt-schema-org/schema'
+import { defineLocalBusiness } from 'nuxt-schema-org/schema'
 
 import siteMetadata from './app/siteMetadata'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      link: [
+        { href: '/favicon.ico', rel: 'icon', sizes: '48x48' },
+        { href: '/favicon-32x32.png', rel: 'icon', sizes: '32x32', type: 'image/png' },
+        { href: '/favicon-16x16.png', rel: 'icon', sizes: '16x16', type: 'image/png' },
+        { href: '/apple-touch-icon.png', rel: 'apple-touch-icon', sizes: '180x180' },
+      ],
+    },
+  },
+
   compatibilityDate: '2025-10-01',
 
   css: ['~/assets/css/main.css'],
@@ -51,9 +62,22 @@ export default defineNuxtConfig({
   },
 
   schemaOrg: {
-    identity: defineOrganization({
-      logo: `${siteMetadata.twicPicsBaseUrl}/logo.png`,
-      name: siteMetadata.title,
+    identity: defineLocalBusiness({
+      '@type': 'LocalBusiness',
+      'address': {
+        addressCountry: 'DE',
+        addressLocality: siteMetadata.address.locality,
+        addressRegion: siteMetadata.address.region,
+        postalCode: siteMetadata.address.postalCode,
+        streetAddress: siteMetadata.address.street,
+      },
+      'description': siteMetadata.description,
+      'email': siteMetadata.email,
+      'logo': `${siteMetadata.twicPicsBaseUrl}/logo.png`,
+      'name': siteMetadata.title,
+      'sameAs': [siteMetadata.instagramUrl],
+      'telephone': siteMetadata.phone,
+      'url': siteMetadata.url,
     }),
   },
 
