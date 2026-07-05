@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { NavigationMenuItem } from '@nuxt/ui'
 
+import siteMetadata from '~/siteMetadata'
+
 const items: Array<NavigationMenuItem> = [{
   label: 'Impressum',
   to: '/impressum',
@@ -35,6 +37,15 @@ const items: Array<NavigationMenuItem> = [{
     />
 
     <template #right>
+      <UButton
+        icon="i-simple-icons-instagram"
+        :to="siteMetadata.instagramUrl"
+        target="_blank"
+        color="neutral"
+        variant="ghost"
+        size="sm"
+        aria-label="Privatimkerei Hoffmann auf Instagram"
+      />
       <UColorModeButton size="sm" />
     </template>
   </UFooter>
