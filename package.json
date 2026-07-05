@@ -1,14 +1,14 @@
 {
   "name": "imkerei-hoffmann-website",
+  "type": "module",
+  "packageManager": "pnpm@10.19.0",
   "description": "Website of Privatimkerei Hoffmann",
   "author": "Michael Hoffmann <mail@mokkaps.de>",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/mokkapps/imkerei-hoffmann-website"
   },
-  "license": "MIT",
-  "type": "module",
-  "packageManager": "pnpm@10.19.0",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
