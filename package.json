@@ -1,5 +1,5 @@
 {
-  "name": "imkerei-hoffmann-website",
+  "name": "privatimkerei-hoffmann.de",
   "type": "module",
   "packageManager": "pnpm@10.19.0",
   "description": "Website of Privatimkerei Hoffmann",
@@ -7,7 +7,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mokkapps/imkerei-hoffmann-website"
+    "url": "https://github.com/mokkapps/privatimkerei-hoffmann.de"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "scripts": {
     "build": "nuxt build",
