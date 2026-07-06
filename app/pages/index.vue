@@ -1,8 +1,13 @@
 <script setup lang="ts">
+import { images, twicPicsUrl } from '~/data/images'
 import { formatPrice, products } from '~/data/products'
 import siteMetadata from '~/siteMetadata'
 
-const faqItems = [
+const knowledgeItems = [
+  {
+    label: 'Wie schützen wir unsere Bienen?',
+    slot: 'varroa',
+  },
   {
     label: 'Flüssiger oder fester Honig?',
     slot: 'konsistenz',
@@ -12,48 +17,39 @@ const faqItems = [
     slot: 'honigschleuder',
   },
   {
+    label: 'Wie lagert man Honig richtig?',
+    slot: 'lagern',
+  },
+  {
+    label: 'Warum regionaler Honig?',
+    slot: 'regional',
+  },
+  {
     label: 'Was bedeutet „Honig aus EU- und Nicht-EU-Ländern“?',
     slot: 'eu-honey',
   },
-]
-
-const traditionItems = [
   {
-    date: '1890',
-    description: 'Die Imkertradition unserer Familie beginnt – seit über 130 Jahren wird das Wissen rund um Bienen und Honig von Generation zu Generation weitergegeben.',
-    icon: 'i-heroicons-book-open',
-    title: 'Der Anfang',
-  },
-  {
-    date: 'Vom Hobby zum Familienbetrieb',
-    description: 'Was als Hobby begann, wächst immer mehr zu einem Familienbetrieb heran – heute führen Renate und Michael die Imkerei gemeinsam mit viel Liebe zur Honigbiene und großem Pflegeaufwand.',
-    icon: 'i-heroicons-heart',
-    title: 'Mit Leidenschaft',
-  },
-  {
-    date: 'Heute',
-    description: 'Wir imkern an zwei Standorten im Landkreis Regen & Straubing-Bogen im Bayerischen Wald – nachhaltig und ohne Medikamenteneinsatz.',
-    icon: 'i-heroicons-map-pin',
-    title: 'Regional & nachhaltig',
+    label: 'Was sind Bienenwachstücher?',
+    slot: 'bienenwachs',
   },
 ]
 
 const galleryImages = [
   {
     alt: 'Bienen auf einer goldenen Honigwabe mit gefüllten Wachszellen',
-    src: 'galerie-bienen-wabe.webp',
+    src: images.gallery.bienenWabe,
   },
   {
     alt: 'Bienenstöcke auf einer Blumenwiese im Bayerischen Wald',
-    src: 'galerie-bayerischer-wald.webp',
+    src: images.gallery.bayerischerWald,
   },
   {
     alt: 'Imker hebt eine Bienenwabe aus dem Bienenstock',
-    src: 'galerie-imkerarbeit.webp',
+    src: images.gallery.imkerarbeit,
   },
   {
     alt: 'Frisch geschleuderter Honig fließt durch ein Sieb',
-    src: 'galerie-honigernte.webp',
+    src: images.gallery.honigernte,
   },
 ]
 
@@ -97,7 +93,7 @@ useSchemaOrg([
   ...products.map(product => ({
     '@type': 'Product' as const,
     'description': product.description,
-    'image': `${siteMetadata.url}${product.image}`,
+    'image': twicPicsUrl(product.image),
     'name': product.name,
     'offers': product.variants.map(variant => ({
       '@type': 'Offer' as const,
@@ -131,7 +127,7 @@ defineOgImage('NuxtSeoSatori', {
       </template>
 
       <nuxt-img
-        src="/me.jpg"
+        :src="images.me"
         alt="Renate und Michael Hoffmann von der Privatimkerei Hoffmann"
         class="w-full rounded-md shadow-xl"
       />
@@ -173,25 +169,6 @@ defineOgImage('NuxtSeoSatori', {
     </UPageHero>
 
     <UPageSection
-      title="Tradition seit 1890"
-      icon="i-heroicons-clock"
-      description="Über 130 Jahre Erfahrung und Liebe zur Honigbiene – von Generation zu Generation weitergegeben."
-    >
-      <UTimeline
-        :items="traditionItems"
-        orientation="horizontal"
-        class="hidden md:flex w-full"
-        :ui="{ description: 'text-muted' }"
-      />
-      <UTimeline
-        :items="traditionItems"
-        orientation="vertical"
-        class="md:hidden"
-        :ui="{ description: 'text-muted' }"
-      />
-    </UPageSection>
-
-    <UPageSection
       title="Unsere Grundsätze"
       icon="i-heroicons-star"
     >
@@ -206,7 +183,7 @@ defineOgImage('NuxtSeoSatori', {
           spotlight-color="primary"
         >
           <nuxt-img
-            src="/bees.jpg"
+            :src="images.bees"
             alt="Bienen am Einflugloch eines Bienenstocks"
             class="w-full rounded-md h-60"
           />
@@ -219,7 +196,7 @@ defineOgImage('NuxtSeoSatori', {
           spotlight-color="primary"
         >
           <nuxt-img
-            src="/honey.jpg"
+            :src="images.honey"
             alt="Honiggläser der Privatimkerei Hoffmann"
             class="w-full rounded-md h-60"
           />
@@ -232,7 +209,7 @@ defineOgImage('NuxtSeoSatori', {
           spotlight-color="primary"
         >
           <nuxt-img
-            src="/regional.jpg"
+            :src="images.regional"
             alt="Landschaft im Landkreis Regen und Straubing-Bogen"
             class="object-fit w-full rounded-md h-60 "
           />
@@ -337,65 +314,246 @@ defineOgImage('NuxtSeoSatori', {
     >
       <template #description>
         <p id="knowledge">
-          In unserer Imkerei verwenden wir zum Kampf gegen die Varroa-Milbe ausschließlich biologische Säuren (Ameisensäure, Milchsäure und Oxalsäure). Diese Säuren sind für die Milben tödlich, werden aber von den Bienen, bei korrekter Handhabung, gut vertragen.
-        </p>
-        <p class="font-bold">
-          Der Einsatz von Medikamenten findet bei uns generell nicht statt!
+          Honig ist mehr als ein süßer Brotaufstrich – hinter jedem Glas steckt jahrelange Imkertradition, fleißige Bienen und sorgfältige Handarbeit. Hier beantworten wir die häufigsten Fragen rund um unsere Imkerei, die Honigernte und worauf Sie beim Kauf achten sollten.
         </p>
       </template>
 
       <UAccordion
-        :items="faqItems"
+        :items="knowledgeItems"
         color="primary"
         :unmount-on-hide="false"
-        :ui="{ trigger: 'text-base', body: 'text-base text-muted' }"
+        :ui="{ trigger: 'text-base font-medium', body: 'text-base text-muted' }"
       >
+        <template #varroa>
+          <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+            <nuxt-img
+              :src="images.wissen.bienen"
+              alt="Gesunde Bienen am Einflugloch eines Bienenstocks"
+              width="1280"
+              height="854"
+              class="w-full md:max-w-sm shrink-0 rounded-md"
+            />
+            <div class="flex flex-col gap-4">
+              <p>
+                Gesunde Bienen sind die Grundlage für guten Honig. Deshalb legen wir großen Wert auf eine artgerechte Haltung und einen verantwortungsvollen Umgang mit unseren Völkern – ganz ohne den Einsatz von Medikamenten.
+              </p>
+              <p>
+                Zum Schutz vor der Varroa-Milbe setzen wir ausschließlich auf biologische Säuren:
+              </p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>Ameisensäure</li>
+                <li>Milchsäure</li>
+                <li>Oxalsäure</li>
+              </ul>
+              <p>
+                Diese Säuren sind für die Milben tödlich, werden von den Bienen bei korrekter Handhabung aber gut vertragen. So bleiben unsere Völker vital und leistungsfähig – Jahr für Jahr.
+              </p>
+              <p class="font-semibold text-foreground">
+                Der Einsatz von Medikamenten findet bei uns generell nicht statt.
+              </p>
+            </div>
+          </div>
+        </template>
+
         <template #konsistenz>
-          <div class="flex flex-col md:flex-row gap-8">
+          <div class="flex flex-col md:flex-row gap-6 md:gap-8">
             <nuxt-img
-              src="/honey.jpg"
-              alt="Flüssiger und cremiger Honig im Glas"
-              class="w-full md:max-w-sm rounded-md"
+              :src="images.wissen.konsistenz"
+              alt="Flüssiger und cremiger Honig in Gläsern"
+              width="1280"
+              height="854"
+              class="w-full md:max-w-xs shrink-0 rounded-md"
             />
-            <div>
-              <p>Der Honig wird flüssig aus der Bienenwabe geerntet. Er besteht aus ca. 80% Frucht- und Traubenzucker, 18% Wasser und 1% gesunder Wirkstoffe. Ob der Honig flüssig oder fest ist, entscheidet das Mischverhältnis von Frucht- und Traubenzucker. Festen Honig bezeichnet man auch als kristallisierten Honig. Honig mit hohem Traubenzuckeranteil kristallisiert schneller. Durch regelmäßiges Rühren des Honigs werden die Zuckerkristalle zerkleinert und sie verteilen sich gleichmäßig, wodurch cremiger Honig entsteht. Der cremig-gerührte Honig bleibt in dieser Konsistenz.</p>
-              <p class="font-bold mt-4">
-                Letztendlich bleibt es aber Geschmackssache, ob man flüssigen oder festen Honig lieber mag. Qualitativ sind beide Honigvarianten gleich gut.
+            <div class="flex flex-col gap-4">
+              <p>
+                Honig wird flüssig aus der Bienenwabe geerntet. Er besteht aus etwa 80&nbsp;% Frucht- und Traubenzucker, 18&nbsp;% Wasser und rund 1&nbsp;% wertvollen Inhaltsstoffen wie Enzymen, Aminosäuren und Mineralstoffen.
+              </p>
+              <p>
+                Ob Honig flüssig oder fest wird, hängt vom Mischverhältnis der Zucker ab:
+              </p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>Hoher Traubenzuckeranteil → schnellere Kristallisation (fester Honig)</li>
+                <li>Regelmäßiges, schonendes Rühren → fein verteilte Kristalle und cremige Konsistenz</li>
+              </ul>
+              <p>
+                Unser cremig gerührter Honig bleibt dauerhaft streichzart – ideal fürs Frühstücksbrot. Flüssiger Honig eignet sich hervorragend zum Süßen von Tee oder Joghurt.
+              </p>
+              <p class="font-semibold text-foreground">
+                Geschmackssache – qualitativ sind beide Varianten gleichwertig.
               </p>
             </div>
           </div>
         </template>
+
         <template #honigschleuder>
-          <div class="flex flex-col md:flex-row gap-8">
+          <div class="flex flex-col md:flex-row gap-6 md:gap-8">
             <nuxt-img
-              src="/honigschleuder.jpg"
-              alt="Honigschleuder zur Honigernte"
-              class="w-full md:max-w-sm rounded-md"
+              :src="images.wissen.ernte"
+              alt="Honigschleuder zur schonenden Honigernte"
+              width="1280"
+              height="854"
+              class="w-full md:max-w-md shrink-0 rounded-md"
             />
-            <div>
-              <p>Honig ist seit vielen Jahrhunderten eine kostbare Substanz und die Entstehung ist ein langwieriger Prozess. Insgesamt fliegt die Biene für ein Glas Honig dreimal um die Welt. Eine Biene fliegt mehrere hundert Blüten an und sammelt in ihrer Honigblase den süßen Saft. Im Bienenstock übergibt die Sammlerin diesen Saft den Stockbienen. Um den Wassergehalt zu reduzieren, fügt die Stockbiene dem Saft körpereigene Substanzen hinzu und wandelt ihn so in Honig um. Anschließend wird der Honig in den Waben eingelagert und dient dem Volk als Wintervorrat. Der Imker darf erst Honig entnehmen, wenn die Bienen mehr einlagern, als sie selbst als Nahrung benötigen. Zur Honiggewinnung wird der Honig aus der Wabe geschleudert. Die Waben werden anschließend den Bienen zurückgegeben, damit sie neuen Honig einlagern können.</p>
-              <p class="font-bold mt-4">
-                Unser Honig wird kalt geschleudert, gesiebt (eventuell noch cremig gerührt) und in Gläser abgefüllt.
-                Es ist ein reines Naturprodukt ohne irgendwelche Zusätze.
+            <div class="flex flex-col gap-4">
+              <p>
+                Für ein Glas Honig fliegt eine Biene im Schnitt dreimal um die Welt. Jede Sammlerin besucht Hunderte von Blüten, nimmt den Nektar auf und übergibt ihn im Stock den Stockbienen. Diese reduzieren den Wassergehalt, reichern den Saft mit körpereigenen Enzymen an und lagern ihn als Wintervorrat in den Waben ein.
+              </p>
+              <p>
+                Wir entnehmen Honig erst, wenn die Bienen mehr eingelagert haben, als sie selbst benötigen. So bleibt jedem Volk genug Nahrung für den Winter.
+              </p>
+              <p class="font-medium text-foreground">
+                Unser Weg vom Stock ins Glas:
+              </p>
+              <ol class="list-decimal list-inside space-y-1">
+                <li>Honig wird kalt aus der Wabe geschleudert</li>
+                <li>Schonend gesiebt, um Wachsteilchen zu entfernen</li>
+                <li>Bei Bedarf cremig gerührt</li>
+                <li>Direkt in Gläser abgefüllt – ohne jegliche Zusätze</li>
+              </ol>
+              <p>
+                Die Waben geben wir den Bienen zurück, damit sie neuen Honig einlagern können – nachhaltig und ressourcenschonend.
               </p>
             </div>
           </div>
         </template>
+
+        <template #lagern>
+          <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+            <nuxt-img
+              :src="images.wissen.lagerung"
+              alt="Honiggläser richtig gelagert in einem dunklen Regal"
+              width="1280"
+              height="854"
+              class="w-full md:max-w-xs shrink-0 rounded-md"
+            />
+            <div class="flex flex-col gap-4">
+              <p>
+                Honig ist nahezu unbegrenzt haltbar – vorausgesetzt, er wird richtig gelagert. Dabei gilt:
+              </p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>Kühl und trocken, idealerweise bei 10–18&nbsp;°C</li>
+                <li>Dunkel lagern, da Licht den Geschmack beeinträchtigen kann</li>
+                <li>Gut verschlossen halten – Honig nimmt sonst Feuchtigkeit und Fremdgerüche auf</li>
+                <li>Nicht im Kühlschrank – dort kristallisiert er schneller und wird hart</li>
+              </ul>
+              <p>
+                Flüssiger Honig kann mit der Zeit natürlich kristallisieren – ein Zeichen für echte Qualität, kein Qualitätsmangel. Bei Bedarf lässt er sich vorsichtig im Wasserbad bei maximal 40&nbsp;°C wieder flüssig machen.
+              </p>
+              <p class="font-semibold text-foreground">
+                Wichtig: Niemals in der Mikrowelle erhitzen – das zerstört wertvolle Enzyme und Aromen.
+              </p>
+            </div>
+          </div>
+        </template>
+
+        <template #regional>
+          <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+            <nuxt-img
+              :src="images.wissen.regional"
+              alt="Bienenstöcke auf einer Blumenwiese im Bayerischen Wald"
+              width="1280"
+              height="854"
+              class="w-full md:max-w-sm shrink-0 rounded-md"
+            />
+            <div class="flex flex-col gap-4">
+              <p>
+                Unser Honig stammt ausschließlich aus dem Landkreis Regen und Straubing-Bogen im Bayerischen Wald. Sie wissen genau, wo Ihr Honig herkommt – und welche Blütenpracht unsere Bienen bestäubt haben.
+              </p>
+              <p class="font-medium text-foreground">
+                Vorteile von regionalem Honig:
+              </p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>Kurze Wege vom Stock bis ins Glas</li>
+                <li>Einzigartiger Geschmack durch heimische Blütenvielfalt</li>
+                <li>Unterstützung lokaler Imker und heimischer Bienenvölker</li>
+                <li>Keine Anreicherung oder Vermischung mit Import-Honig</li>
+                <li>Schonende, handwerkliche Verarbeitung in kleiner Menge</li>
+              </ul>
+              <p>
+                Regionaler Honig trägt zudem zur Bestäubung heimischer Pflanzen bei und stärkt die Biodiversität in unserer Region.
+              </p>
+            </div>
+          </div>
+        </template>
+
         <template #eu-honey>
-          <div class="flex flex-col md:flex-row gap-8">
+          <div class="flex flex-col md:flex-row gap-6 md:gap-8">
             <NuxtLink
               to="https://youtu.be/7NEoC1ETcjc?feature=shared&t=32"
               external
               target="_blank"
+              class="shrink-0"
             >
               <nuxt-img
-                src="/sat1-warencheck.png"
+                :src="images.sat1Warencheck"
                 alt="Vorschaubild des SAT.1 Warencheck Videos über Honig aus dem Supermarkt"
-                class="w-full md:max-w-sm rounded-md"
+                width="1246"
+                height="694"
+                class="w-full md:max-w-xs rounded-md hover:opacity-90 transition-opacity"
               />
             </NuxtLink>
-            <div>
-              <p>Auf nahezu jedem Super- oder Biomarkt-Honig findet man die Bezeichnung „Honig aus EU- und Nicht-EU-Ländern“. Dieses Video klärt darüber auf, wo der Honig aus dem Supermarkt herkommt und wie er oft gepanscht wird.</p>
+            <div class="flex flex-col gap-4">
+              <p>
+                Auf nahezu jedem Supermarkt- oder Discounter-Honig steht die Bezeichnung „Honig aus EU- und Nicht-EU-Ländern“. Dahinter verbirgt sich oft ein Blend aus Honigen verschiedenster Herkunft – teils aus mehreren Kontinenten gemischt, aufgeschmolzen und gefiltert.
+              </p>
+              <p class="font-medium text-foreground">
+                Was das für Sie bedeutet:
+              </p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>Kein nachvollziehbarer Ursprung – Sie wissen nicht, woher der Honig wirklich stammt</li>
+                <li>Stark erhitzte Verarbeitung kann Aromen und Inhaltsstoffe beeinträchtigen</li>
+                <li>Einheitlicher, wenig charakteristischer Geschmack</li>
+                <li>Kein direkter Bezug zu heimischen Bienen und Blüten</li>
+              </ul>
+              <p>
+                Im Gegensatz dazu erhalten Sie bei uns echten Honig aus der Region – vom Imker direkt, ohne Umwege.
+              </p>
+              <UButton
+                icon="i-heroicons-play"
+                label="SAT.1 Warencheck ansehen"
+                to="https://youtu.be/7NEoC1ETcjc?feature=shared&t=32"
+                target="_blank"
+                variant="outline"
+                color="neutral"
+                class="w-fit"
+              />
+            </div>
+          </div>
+        </template>
+
+        <template #bienenwachs>
+          <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+            <nuxt-img
+              :src="images.wissen.bienenwachs"
+              alt="Bienenwachstücher aus der eigenen Imkerei"
+              width="1280"
+              height="854"
+              class="w-full md:max-w-md shrink-0 rounded-md"
+            />
+            <div class="flex flex-col gap-4">
+              <p>
+                Bienenwachstücher sind eine natürliche, wiederverwendbare Alternative zu Frischhaltefolie und Alufolie. Sie bestehen aus Baumwollstoff, der mit Bienenwachs aus unserer eigenen Imkerei imprägniert wird.
+              </p>
+              <p class="font-medium text-foreground">
+                Einsatzmöglichkeiten:
+              </p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>Obst, Gemüse, Käse und Brot frisch halten</li>
+                <li>Schüsseln und Gläser abdecken</li>
+                <li>Brotdosen und Lunchboxen auskleiden</li>
+              </ul>
+              <p class="font-medium text-foreground">
+                Pflege und Haltbarkeit:
+              </p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>Mit kaltem bis handwarmem Wasser und mildem Spülmittel reinigen</li>
+                <li>Nicht in der Spülmaschine oder Mikrowelle verwenden</li>
+                <li>Bei Bedarf mit dem Bügeleisen auffrischen</li>
+                <li>Hält bei guter Pflege bis zu einem Jahr</li>
+              </ul>
+              <p class="font-semibold text-foreground">
+                Nachhaltig, plastikfrei und direkt aus unserer Imkerei – in drei Größen oder als praktisches 3er-Set erhältlich.
+              </p>
             </div>
           </div>
         </template>

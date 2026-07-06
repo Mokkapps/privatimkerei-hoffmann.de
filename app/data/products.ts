@@ -1,3 +1,5 @@
+import { images } from '~/data/images'
+
 export interface ProductVariant {
   label: string
   price: number
@@ -26,7 +28,7 @@ export const products: Array<Product> = [
       'Ohne jegliche Zusätze',
     ],
     id: 'honig-fluessig',
-    image: 'produkt-honig-fluessig.webp',
+    image: images.products.honigFluessig,
     imageAlt: 'Glas mit flüssigem, goldenem Honig und Honiglöffel auf einem Holztisch',
     name: 'Flüssiger Honig',
     variants: [
@@ -42,7 +44,7 @@ export const products: Array<Product> = [
       'Ideal als Brotaufstrich',
     ],
     id: 'honig-cremig',
-    image: 'produkt-honig-cremig.webp',
+    image: images.products.honigCremig,
     imageAlt: 'Geöffnetes Glas mit cremig gerührtem Honig und Holzlöffel',
     name: 'Cremig gerührter Honig',
     variants: [
@@ -57,7 +59,7 @@ export const products: Array<Product> = [
       'Einfach mit kaltem bis handwarmem Wasser reinigen',
     ],
     id: 'bienenwachstuecher',
-    image: 'produkt-bienenwachstuecher.webp',
+    image: images.products.bienenwachstuecher,
     imageAlt: 'Bienenwachstücher mit Bienenmuster, eines davon deckt eine Glasschüssel ab',
     name: 'Bienenwachstücher',
     variants: [

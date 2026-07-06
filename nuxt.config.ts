@@ -1,5 +1,6 @@
 import { defineLocalBusiness } from 'nuxt-schema-org/schema'
 
+import { images } from './app/data/images'
 import siteMetadata from './app/siteMetadata'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -118,7 +119,7 @@ export default defineNuxtConfig({
         },
         'name': location.name,
       })),
-      logo: `${siteMetadata.twicPicsBaseUrl}/logo.png`,
+      logo: `${siteMetadata.twicPicsBaseUrl}${images.logo}`,
       name: siteMetadata.title,
       sameAs: [siteMetadata.instagramUrl],
       telephone: siteMetadata.phone,
