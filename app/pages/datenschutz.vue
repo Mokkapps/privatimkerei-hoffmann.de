@@ -9,9 +9,8 @@ useSeoMeta({
   title: 'Datenschutzerklärung',
 })
 
-defineOgImageComponent('NuxtSeo', {
+defineOgImage('NuxtSeoSatori', {
   description: 'Datenschutzerklärung',
-  theme: '#B29712',
   title: siteMetadata.title,
 })
 </script>
@@ -22,7 +21,10 @@ defineOgImageComponent('NuxtSeo', {
       <UPage>
         <UPageHeader title="Datenschutzerklärung" />
         <UPageBody prose>
-          <ContentRenderer :value="value" />
+          <ContentRenderer
+            v-if="value"
+            :value="value"
+          />
         </UPageBody>
       </UPage>
     </UContainer>

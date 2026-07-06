@@ -11,15 +11,10 @@ export default withNuxt(
         quotes: 'single',
         semi: false,
       },
-    },
-    {
-      name: 'base-rules',
-      files: ['**/*'],
       rules: {
-        'style/quotes': ['error', 'single', { avoidEscape: true }],
+        'no-console': ['error', { allow: ['warn', 'error', 'log'] }],
         'style/space-before-function-paren': ['error', 'always'],
         'ts/array-type': ['error', { default: 'generic' }],
-        'no-console': ['error', { allow: ['warn', 'error', 'log'] }],
         'vue/max-attributes-per-line': [
           'error',
           {
@@ -37,14 +32,14 @@ export default withNuxt(
       name: 'sorting',
       files: ['**/*.{ts,js,vue}'],
       rules: {
-        'import/order': 'off', // disable import/order because perfectionist/sort-imports is used
+        'import/order': 'off',
         'perfectionist/sort-array-includes': 'error',
         'perfectionist/sort-exports': 'error',
         'perfectionist/sort-imports': [
           'error',
           {
             groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-            newlinesBetween: 'always',
+            newlinesBetween: 1,
           },
         ],
         'perfectionist/sort-interfaces': 'error',
@@ -63,5 +58,4 @@ export default withNuxt(
       },
     },
   ),
-  // ...your other rules
 )

@@ -43,8 +43,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxt/image',
-    '@nuxt/content',
     '@nuxtjs/seo',
+    '@nuxt/content',
     'nuxt-umami',
   ],
 
@@ -63,17 +63,16 @@ export default defineNuxtConfig({
 
   schemaOrg: {
     identity: defineLocalBusiness({
-      '@type': 'LocalBusiness',
-      'address': {
+      address: {
         addressCountry: 'DE',
         addressLocality: siteMetadata.address.locality,
         addressRegion: siteMetadata.address.region,
         postalCode: siteMetadata.address.postalCode,
         streetAddress: siteMetadata.address.street,
       },
-      'description': siteMetadata.description,
-      'email': siteMetadata.email,
-      'location': siteMetadata.locations.map(location => ({
+      description: siteMetadata.description,
+      email: siteMetadata.email,
+      location: siteMetadata.locations.map(location => ({
         '@type': 'Place',
         'address': {
           '@type': 'PostalAddress',
@@ -85,11 +84,11 @@ export default defineNuxtConfig({
         },
         'name': location.name,
       })),
-      'logo': `${siteMetadata.twicPicsBaseUrl}/logo.png`,
-      'name': siteMetadata.title,
-      'sameAs': [siteMetadata.instagramUrl],
-      'telephone': siteMetadata.phone,
-      'url': siteMetadata.url,
+      logo: `${siteMetadata.twicPicsBaseUrl}/logo.png`,
+      name: siteMetadata.title,
+      sameAs: [siteMetadata.instagramUrl],
+      telephone: siteMetadata.phone,
+      url: siteMetadata.url,
     }),
   },
 

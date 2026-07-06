@@ -61,7 +61,7 @@ const ctaLinks = ref([
   {
     icon: 'i-heroicons-envelope',
     label: 'Kontaktieren Sie uns',
-    size: 'xl',
+    size: 'xl' as const,
     target: '_blank',
     to: `mailto:${siteMetadata.email}`,
   },
@@ -69,7 +69,7 @@ const ctaLinks = ref([
     color: 'neutral' as const,
     icon: 'i-simple-icons-instagram',
     label: 'Auf Instagram folgen',
-    size: 'xl',
+    size: 'xl' as const,
     target: '_blank',
     to: siteMetadata.instagramUrl,
     variant: 'outline' as const,
@@ -109,9 +109,8 @@ useSchemaOrg([
   })),
 ])
 
-defineOgImageComponent('NuxtSeo', {
+defineOgImage('NuxtSeoSatori', {
   description: 'Die Imkertradition geht in unserer Familie bis in das Jahr 1890 zurück.',
-  theme: '#B29712',
   title: siteMetadata.title,
 })
 </script>

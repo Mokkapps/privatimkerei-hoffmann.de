@@ -36,13 +36,15 @@ const items = computed<Array<NavigationMenuItem>>(() => {
 })
 
 nuxtApp.hooks.hookOnce('page:finish', () => {
-  updateHeadings([
-    document.querySelector('#principles'),
-    document.querySelector('#products'),
-    document.querySelector('#knowledge'),
-    document.querySelector('#gallery'),
-    document.querySelector('#contact'),
-  ])
+  updateHeadings(
+    [
+      document.querySelector('#principles'),
+      document.querySelector('#products'),
+      document.querySelector('#knowledge'),
+      document.querySelector('#gallery'),
+      document.querySelector('#contact'),
+    ].filter((element): element is Element => element !== null),
+  )
 })
 </script>
 

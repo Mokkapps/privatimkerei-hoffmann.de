@@ -26,12 +26,14 @@ const locations: Array<Location> = [
   },
 ]
 
+const primaryLocation = locations[0]!
+
 const siteMetadata = {
   address: {
-    locality: locations[0].locality,
-    postalCode: locations[0].postalCode,
-    region: locations[0].region,
-    street: locations[0].street,
+    locality: primaryLocation.locality,
+    postalCode: primaryLocation.postalCode,
+    region: primaryLocation.region,
+    street: primaryLocation.street,
   },
   description: 'Privatimkerei Hoffmann im Bayerischen Wald. Die Imkerei wird von Renate Hoffmann und ihrem Sohn Michael Hoffmann als Familienbetrieb geführt – an zwei Standorten in Prackenbach und Rattenberg. Die Imkertradition geht in unserer Familie bis in das Jahr 1890 zurück.',
   email: 'kontakt@privatimkerei-hoffmann.de',
