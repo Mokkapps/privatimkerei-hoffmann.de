@@ -38,6 +38,39 @@ export default defineNuxtConfig({
     },
   },
 
+  llms: {
+    description: siteMetadata.description,
+    domain: siteMetadata.url,
+    full: {
+      description: 'Ausführliche Informationen zur Privatimkerei Hoffmann im Bayerischen Wald – Imkerei, Produkte, Standorte und rechtliche Seiten.',
+      title: 'Privatimkerei Hoffmann – Vollständige Dokumentation',
+    },
+    sections: [
+      {
+        description: 'Hauptseiten der Privatimkerei Hoffmann',
+        links: [
+          {
+            description: 'Über uns, Produkte, Galerie und Kontakt',
+            href: '/',
+            title: 'Startseite',
+          },
+          {
+            description: 'Angaben gemäß § 5 TMG',
+            href: '/impressum',
+            title: 'Impressum',
+          },
+          {
+            description: 'Datenschutzerklärung',
+            href: '/datenschutz',
+            title: 'Datenschutz',
+          },
+        ],
+        title: 'Website',
+      },
+    ],
+    title: siteMetadata.title,
+  },
+
   modules: [
     '@nuxt/ui',
     '@nuxt/eslint',
@@ -45,13 +78,14 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/seo',
     '@nuxt/content',
+    'nuxt-llms',
     'nuxt-umami',
   ],
 
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/sitemap.xml', '/robots.txt'],
+      routes: ['/sitemap.xml', '/robots.txt', '/llms.txt', '/llms-full.txt'],
     },
   },
 
