@@ -16,10 +16,9 @@ export interface Product {
 
 // Preise zentral pflegen – Änderungen wirken sich automatisch auf
 // Produktkarten und Schema.org-Produktdaten aus.
-// TODO: Preise mit der Familie abstimmen (aktuell marktübliche Richtwerte).
 export const products: Array<Product> = [
   {
-    badge: 'Nettegold',
+    badge: 'Am besten frisch genießen',
     description: 'Kalt geschleudert, gesiebt und direkt ins Glas abgefüllt – ein reines Naturprodukt ohne Zusätze aus dem Bayerischen Wald.',
     details: [
       '100% regional aus dem Landkreis Regen & Straubing-Bogen',
@@ -27,16 +26,15 @@ export const products: Array<Product> = [
       'Ohne jegliche Zusätze',
     ],
     id: 'honig-fluessig',
-    image: '/images/produkt-honig-fluessig.webp',
+    image: 'produkt-honig-fluessig.webp',
     imageAlt: 'Glas mit flüssigem, goldenem Honig und Honiglöffel auf einem Holztisch',
     name: 'Flüssiger Honig',
     variants: [
-      { label: '500 g Glas', price: 7.5 },
-      { label: '250 g Glas', price: 4.5 },
+      { label: '500 g Glas', price: 7 },
     ],
   },
   {
-    badge: 'Nettegold',
+    badge: 'Bleibt dauerhaft cremig',
     description: 'Durch regelmäßiges, schonendes Rühren wird der Honig herrlich cremig und bleibt dauerhaft streichzart – perfekt fürs Frühstücksbrot.',
     details: [
       'Fein-cremig gerührt, bleibt dauerhaft streichfähig',
@@ -44,12 +42,11 @@ export const products: Array<Product> = [
       'Ideal als Brotaufstrich',
     ],
     id: 'honig-cremig',
-    image: '/images/produkt-honig-cremig.webp',
+    image: 'produkt-honig-cremig.webp',
     imageAlt: 'Geöffnetes Glas mit cremig gerührtem Honig und Holzlöffel',
     name: 'Cremig gerührter Honig',
     variants: [
-      { label: '500 g Glas', price: 7.5 },
-      { label: '250 g Glas', price: 4.5 },
+      { label: '500 g Glas', price: 7 },
     ],
   },
   {
@@ -60,7 +57,7 @@ export const products: Array<Product> = [
       'Einfach mit kaltem bis handwarmem Wasser reinigen',
     ],
     id: 'bienenwachstuecher',
-    image: '/images/produkt-bienenwachstuecher.webp',
+    image: 'produkt-bienenwachstuecher.webp',
     imageAlt: 'Bienenwachstücher mit Bienenmuster, eines davon deckt eine Glasschüssel ab',
     name: 'Bienenwachstücher',
     variants: [

@@ -37,7 +37,6 @@ const siteMetadata = {
   },
   description: 'Privatimkerei Hoffmann im Bayerischen Wald. Die Imkerei wird von Renate Hoffmann und ihrem Sohn Michael Hoffmann als Familienbetrieb geführt – an zwei Standorten in Prackenbach und Rattenberg. Die Imkertradition geht in unserer Familie bis in das Jahr 1890 zurück.',
   email: 'kontakt@privatimkerei-hoffmann.de',
-  // TODO: Instagram-Handle bestätigen und ggf. hier anpassen
   instagramUrl: 'https://www.instagram.com/privatimkerei.hoffmann/',
   locations,
   phone: '09944/2283',

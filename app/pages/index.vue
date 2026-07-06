@@ -41,19 +41,19 @@ const traditionItems = [
 const galleryImages = [
   {
     alt: 'Bienen auf einer goldenen Honigwabe mit gefüllten Wachszellen',
-    src: '/images/galerie-bienen-wabe.webp',
+    src: 'galerie-bienen-wabe.webp',
   },
   {
     alt: 'Bienenstöcke auf einer Blumenwiese im Bayerischen Wald',
-    src: '/images/galerie-bayerischer-wald.webp',
+    src: 'galerie-bayerischer-wald.webp',
   },
   {
     alt: 'Imker hebt eine Bienenwabe aus dem Bienenstock',
-    src: '/images/galerie-imkerarbeit.webp',
+    src: 'galerie-imkerarbeit.webp',
   },
   {
     alt: 'Frisch geschleuderter Honig fließt durch ein Sieb',
-    src: '/images/galerie-honigernte.webp',
+    src: 'galerie-honigernte.webp',
   },
 ]
 
@@ -260,14 +260,14 @@ defineOgImage('NuxtSeoSatori', {
         >
           <template #header>
             <div class="relative">
-              <img
+              <nuxt-img
                 :src="product.image"
                 :alt="product.imageAlt"
                 loading="lazy"
                 width="1280"
                 height="1280"
                 class="w-full rounded-md object-cover aspect-square"
-              >
+              />
               <UBadge
                 v-if="product.badge"
                 color="primary"
@@ -413,7 +413,7 @@ defineOgImage('NuxtSeoSatori', {
       </template>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <img
+        <nuxt-img
           v-for="image in galleryImages"
           :key="image.src"
           :src="image.src"
@@ -422,7 +422,7 @@ defineOgImage('NuxtSeoSatori', {
           width="1280"
           height="1280"
           class="w-full rounded-md object-cover aspect-4/3 shadow-md hover:scale-[1.02] transition-transform duration-300"
-        >
+        />
       </div>
     </UPageSection>
 
@@ -430,49 +430,54 @@ defineOgImage('NuxtSeoSatori', {
       id="contact"
       title="Kontakt"
       variant="soft"
-      description="Wir freuen uns über Ihre Anfrage!"
       :links="ctaLinks"
-      orientation="horizontal"
+      orientation="vertical"
+      :ui="{
+        title: 'text-left',
+        description: 'text-left',
+        links: 'justify-start',
+      }"
     >
-      <UPageGrid>
-        <UPageCard
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+        <div
           v-for="location in siteMetadata.locations"
           :key="location.mapsQuery"
-          :title="location.name"
+          class="flex flex-col gap-4 rounded-lg bg-default/50 ring ring-default p-4 sm:p-6"
         >
-          <template #description>
-            <div class="flex flex-col gap-4">
-              <div class="flex flex-col text-sm">
-                <span>{{ location.street }}</span>
-                <span>{{ location.postalCode }} {{ location.locality }}</span>
-              </div>
-
-              <iframe
-                v-if="googleMapsApiKey"
-                class="w-full h-[300px] border-0 rounded-md"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                :title="`Standort ${location.name} auf Google Maps`"
-                :src="googleMapsEmbedUrl(location.mapsQuery)"
-              />
-              <UButton
-                v-else
-                icon="i-heroicons-map-pin"
-                :to="googleMapsSearchUrl(location.mapsQuery)"
-                target="_blank"
-                variant="outline"
-                color="neutral"
-                block
-              >
-                Auf Google Maps öffnen
-              </UButton>
+          <div class="flex flex-col gap-1">
+            <h3 class="text-base font-semibold text-highlighted">
+              {{ location.name }}
+            </h3>
+            <div class="flex flex-col text-sm text-muted">
+              <span>{{ location.street }}</span>
+              <span>{{ location.postalCode }} {{ location.locality }}</span>
             </div>
-          </template>
-        </UPageCard>
-      </UPageGrid>
+          </div>
 
-      <p class="text-sm text-muted text-center">
+          <iframe
+            v-if="googleMapsApiKey"
+            class="w-full min-h-[300px] flex-1 border-0 rounded-md"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            :title="`Standort ${location.name} auf Google Maps`"
+            :src="googleMapsEmbedUrl(location.mapsQuery)"
+          />
+          <UButton
+            v-else
+            icon="i-heroicons-map-pin"
+            :to="googleMapsSearchUrl(location.mapsQuery)"
+            target="_blank"
+            variant="outline"
+            color="neutral"
+            block
+          >
+            Auf Google Maps öffnen
+          </UButton>
+        </div>
+      </div>
+
+      <p class="text-sm text-muted text-center w-full">
         An beiden Standorten stehen Bienen unserer Imkerei.
       </p>
 

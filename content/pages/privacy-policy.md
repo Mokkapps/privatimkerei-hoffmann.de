@@ -20,22 +20,22 @@ III. Informationen zur Datenverarbeitung
 
 Verantwortlicher Anbieter dieses Internetauftritts im datenschutzrechtlichen Sinne ist:
 
-Renate Hoffmann
-Pfarrhofstraße 7
-94267 Prackenbach
+Michael Hoffmann\
+Siegersdorf 18\
+94371 Rattenberg\
 Deutschland
 
-Telefon: 09944/2283
+Telefon: +49 151 41257551
 E-Mail: [kontakt@privatimkerei-hoffmann.de](mailto:kontakt@privatimkerei-hoffmann.de)
 
 Datenschutzbeauftragter beim Anbieter ist:
 
-Michael Hoffmann
-Holzapfelkreuther Str. 19
-81375 München
+Michael Hoffmann\
+Siegersdorf 18\
+94371 Rattenberg\
 Deutschland
 
-E-Mail: [mail@mokkapps.de](mailto:mail@mokkapps.de)
+E-Mail: [kontakt@privatimkerei-hoffmann.de](mailto:kontakt@privatimkerei-hoffmann.de)
 
 ### II. Rechte der Nutzer und Betroffenen
 
