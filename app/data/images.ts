@@ -10,7 +10,7 @@ export const images = {
     imkerarbeit: 'galerie-imkerarbeit.webp',
   },
   honey: '/honey.jpg',
-  logo: '/logo.png',
+  logo: '/logo-v2.1.png',
   me: '/me.jpg',
   products: {
     bienenwachstuecher: 'produkt-bienenwachstuecher.webp',

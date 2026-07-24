@@ -51,11 +51,11 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
 <template>
   <UHeader>
     <template #title>
-      <div class="flex items-center">
+      <div class="flex items-center gap-2">
         <nuxt-img
-          src="/logo.png"
+          src="/logo-v2.1.png"
           alt="Logo der Privatimkerei Hoffmann"
-          class="w-12 h-12"
+          class="size-12 rounded-full"
         />
         Privatimkerei Hoffmann
       </div>
