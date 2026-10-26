@@ -10,7 +10,7 @@
     "url": "https://github.com/mokkapps/privatimkerei-hoffmann.de"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24.22.1"
   },
   "scripts": {
     "build": "nuxt build",
