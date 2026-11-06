@@ -18,10 +18,6 @@ defineProps<{
       </UMain>
     </UContainer>
 
-    <USeparator
-      class="h-px"
-    />
-
     <AppFooter />
   </div>
 </template>

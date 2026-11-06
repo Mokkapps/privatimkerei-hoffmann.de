@@ -1,88 +1,127 @@
 <script setup lang="ts">
-import type { NavigationMenuItem } from '@nuxt/ui'
+import type { DropdownMenuItem } from '@nuxt/ui'
 
+import { images } from '~/data/images'
 import siteMetadata from '~/siteMetadata'
+
+const sections = [
+  { id: 'principles', label: 'Über uns' },
+  { id: 'products', label: 'Produkte' },
+  { id: 'knowledge', label: 'Wissenswertes' },
+  { id: 'contact', label: 'Kontakt' },
+] as const
 
 const route = useRoute()
 const nuxtApp = useNuxtApp()
 const { activeHeadings, updateHeadings } = useScrollspy()
 
-const items = computed<Array<NavigationMenuItem>>(() => {
+const activeSection = computed(() => {
   if (route.path !== '/') {
-    return []
+    return undefined
   }
+  return [...sections].reverse().find(section => activeHeadings.value.includes(section.id))?.id
+})
 
-  return [{
-    active: activeHeadings.value.includes('principles') && !activeHeadings.value.includes('products'),
-    label: 'Grundsätze',
-    to: '#principles',
-  }, {
-    active: activeHeadings.value.includes('products') && !activeHeadings.value.includes('knowledge'),
-    label: 'Produkte',
-    to: '#products',
-  }, {
-    active: activeHeadings.value.includes('knowledge') && !activeHeadings.value.includes('gallery'),
-    label: 'Wissenswertes',
-    to: '#knowledge',
-  }, {
-    active: activeHeadings.value.includes('gallery') && !activeHeadings.value.includes('contact'),
-    label: 'Einblicke',
-    to: '#gallery',
-  }, {
-    active: activeHeadings.value.includes('contact'),
-    label: 'Kontakt',
-    to: '#contact',
-  }]
+const menuItems = computed<Array<DropdownMenuItem>>(() => [
+  ...sections.map(section => ({ label: section.label, to: `/#${section.id}` })),
+  { icon: 'i-heroicons-phone', label: `Anrufen: ${siteMetadata.phoneDisplay}`, to: siteMetadata.phoneHref },
+])
+
+const isScrolled = ref(false)
+
+function onScroll () {
+  isScrolled.value = window.scrollY > 8
+}
+
+onMounted(() => {
+  onScroll()
+  window.addEventListener('scroll', onScroll, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
 })
 
 nuxtApp.hooks.hookOnce('page:finish', () => {
   updateHeadings(
-    [
-      document.querySelector('#principles'),
-      document.querySelector('#products'),
-      document.querySelector('#knowledge'),
-      document.querySelector('#gallery'),
-      document.querySelector('#contact'),
-    ].filter((element): element is Element => element !== null),
+    sections
+      .map(section => document.querySelector(`#${section.id}`))
+      .filter((element): element is Element => element !== null),
   )
 })
 </script>
 
 <template>
-  <UHeader>
-    <template #title>
-      <div class="flex items-center gap-2">
-        <nuxt-img
-          src="/logo-v2.1.png"
-          alt="Logo der Privatimkerei Hoffmann"
-          class="size-12 rounded-full"
+  <header
+    class="sticky top-0 z-50 border-b bg-default/85 backdrop-blur-md backdrop-saturate-150 transition-colors"
+    :class="isScrolled ? 'border-default' : 'border-transparent'"
+  >
+    <UContainer class="flex h-(--ui-header-height) items-center gap-3 sm:gap-7">
+      <NuxtLink
+        to="/"
+        class="mr-auto flex min-w-0 items-center gap-2.5 sm:gap-3"
+      >
+        <NuxtImg
+          :src="images.logo"
+          alt=""
+          width="84"
+          height="84"
+          class="size-9 shrink-0 rounded-full sm:size-10.5"
         />
-        Privatimkerei Hoffmann
+        <span class="font-display text-[17px] leading-tight font-bold tracking-[-0.02em] whitespace-nowrap text-highlighted sm:text-[19px]">
+          Privatimkerei Hoffmann
+          <span class="hidden font-sans text-[13px] font-medium tracking-normal text-muted sm:block">
+            Bayerischer Wald · seit {{ siteMetadata.foundingYear }}
+          </span>
+        </span>
+      </NuxtLink>
+
+      <nav
+        aria-label="Hauptnavigation"
+        class="hidden gap-1 lg:flex"
+      >
+        <NuxtLink
+          v-for="section in sections"
+          :key="section.id"
+          :to="`/#${section.id}`"
+          class="rounded-full px-3.5 py-2.5 text-base font-medium transition-colors hover:bg-muted hover:text-highlighted"
+          :class="activeSection === section.id ? 'bg-muted text-highlighted' : 'text-muted'"
+        >
+          {{ section.label }}
+        </NuxtLink>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <UColorModeButton
+          class="hidden sm:inline-flex"
+          size="lg"
+        />
+        <UDropdownMenu
+          :items="menuItems"
+          :content="{ align: 'end' }"
+          class="lg:hidden"
+        >
+          <UButton
+            icon="i-heroicons-bars-3"
+            color="neutral"
+            variant="ghost"
+            size="lg"
+            aria-label="Menü öffnen"
+          />
+        </UDropdownMenu>
+        <a
+          :href="siteMetadata.phoneHref"
+          class="btn btn-primary min-h-11 w-11 px-0 text-base min-[440px]:w-auto min-[440px]:px-4.5"
+          :aria-label="`${siteMetadata.phoneDisplay} anrufen`"
+        >
+          <UIcon
+            name="i-heroicons-phone"
+            class="size-5"
+          />
+          <span class="hidden min-[440px]:inline sm:hidden">Anrufen</span>
+          <span class="hidden sm:inline">{{ siteMetadata.phoneDisplay }}</span>
+        </a>
       </div>
-    </template>
-
-    <UNavigationMenu
-      :items="items"
-    />
-
-    <template #right>
-      <UButton
-        icon="i-simple-icons-instagram"
-        :to="siteMetadata.instagramUrl"
-        target="_blank"
-        color="neutral"
-        variant="ghost"
-        aria-label="Privatimkerei Hoffmann auf Instagram"
-      />
-      <UColorModeButton />
-    </template>
-
-    <template #body>
-      <UNavigationMenu
-        :items="items"
-        orientation="vertical"
-        class="-mx-2.5"
-      />
-    </template>
-  </UHeader>
+    </UContainer>
+  </header>
 </template>

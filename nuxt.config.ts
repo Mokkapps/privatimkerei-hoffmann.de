@@ -30,6 +30,12 @@ export default defineNuxtConfig({
     },
   },
 
+  fonts: {
+    defaults: {
+      weights: [400, 500, 600, 700, 800],
+    },
+  },
+
   image: {
     domains: ['mokkapps.twic.pics'],
     provider: 'twicpics',
@@ -87,12 +93,6 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/sitemap.xml', '/robots.txt', '/llms.txt', '/llms-full.txt'],
-    },
-  },
-
-  runtimeConfig: {
-    public: {
-      googleMapsApiKey: '',
     },
   },
 

@@ -3,6 +3,8 @@ import { images } from '~/data/images'
 export interface ProductVariant {
   label: string
   price: number
+  /** Kurzbezeichnung für die Größenauswahl, z. B. "S" */
+  shortLabel?: string
 }
 
 export interface Product {
@@ -52,6 +54,7 @@ export const products: Array<Product> = [
     ],
   },
   {
+    badge: 'Aus eigenem Bienenwachs',
     description: 'Die nachhaltige, wiederverwendbare Alternative zur Frischhaltefolie – aus Baumwolle und Bienenwachs aus der eigenen Imkerei.',
     details: [
       'Für Obst, Gemüse, Käse und Brot sowie zum Abdecken von Schüsseln',
@@ -63,10 +66,10 @@ export const products: Array<Product> = [
     imageAlt: 'Bienenwachstücher mit Bienenmuster, eines davon deckt eine Glasschüssel ab',
     name: 'Bienenwachstücher',
     variants: [
-      { label: 'Größe S (ca. 20×20 cm)', price: 5 },
-      { label: 'Größe M (ca. 25×25 cm)', price: 7 },
-      { label: 'Größe L (ca. 30×30 cm)', price: 9 },
-      { label: '3er-Set (S, M, L)', price: 18 },
+      { label: 'Größe S (ca. 20×20 cm)', price: 5, shortLabel: 'S' },
+      { label: 'Größe M (ca. 25×25 cm)', price: 7, shortLabel: 'M' },
+      { label: 'Größe L (ca. 30×30 cm)', price: 9, shortLabel: 'L' },
+      { label: '3er-Set (S, M, L)', price: 18, shortLabel: 'Set' },
     ],
   },
 ]
