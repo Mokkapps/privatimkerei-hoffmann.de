@@ -1,4 +1,5 @@
 export interface Location {
+  district: string
   locality: string
   mapsQuery: string
   name: string
@@ -9,6 +10,7 @@ export interface Location {
 
 const locations: Array<Location> = [
   {
+    district: 'Landkreis Regen',
     locality: 'Prackenbach',
     mapsQuery: 'Pfarrhofstraße+7,94267+Prackenbach',
     name: 'Renate Hoffmann',
@@ -17,6 +19,7 @@ const locations: Array<Location> = [
     street: 'Pfarrhofstraße 7',
   },
   {
+    district: 'Landkreis Straubing-Bogen',
     locality: 'Rattenberg',
     mapsQuery: 'Siegersdorf+18,94371+Rattenberg',
     name: 'Michael Hoffmann',
@@ -28,6 +31,8 @@ const locations: Array<Location> = [
 
 const primaryLocation = locations[0]!
 
+const phone = '09944/2283'
+
 const siteMetadata = {
   address: {
     locality: primaryLocation.locality,
@@ -37,12 +42,20 @@ const siteMetadata = {
   },
   description: 'Privatimkerei Hoffmann im Bayerischen Wald. Die Imkerei wird von Renate Hoffmann und ihrem Sohn Michael Hoffmann als Familienbetrieb geführt – an zwei Standorten in Prackenbach und Rattenberg. Die Imkertradition geht in unserer Familie bis in das Jahr 1890 zurück.',
   email: 'kontakt@privatimkerei-hoffmann.de',
+  foundingYear: 1890,
+  instagramHandle: '@privatimkerei.hoffmann',
   instagramUrl: 'https://www.instagram.com/privatimkerei.hoffmann/',
   locations,
-  phone: '09944/2283',
+  phone,
+  phoneDisplay: phone.replace('/', ' / '),
+  phoneHref: `tel:${phone.replace(/\D/g, '')}`,
   title: 'Privatimkerei Hoffmann',
   twicPicsBaseUrl: 'https://mokkapps.twic.pics/privatimkerei-hoffmann.de',
   url: 'https://privatimkerei-hoffmann.de',
+}
+
+export function googleMapsSearchUrl (mapsQuery: string): string {
+  return `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`
 }
 
 export default siteMetadata
