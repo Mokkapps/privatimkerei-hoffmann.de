@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import siteMetadata from '~/siteMetadata'
 
+const instagramUrl = siteMetadata.instagramUrl
+
 const links = [
   { label: 'Impressum', to: '/impressum' },
   { label: 'Datenschutz', to: '/datenschutz' },
@@ -42,7 +44,7 @@ const links = [
         <div class="flex items-center gap-1">
           <UButton
             icon="i-simple-icons-instagram"
-            :to="siteMetadata.instagramUrl"
+            :to="instagramUrl"
             target="_blank"
             color="neutral"
             variant="ghost"

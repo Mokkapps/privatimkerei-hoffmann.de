@@ -3,7 +3,10 @@ import { images } from '~/data/images'
 import siteMetadata from '~/siteMetadata'
 
 const milestones = [
-  { label: 'Die ersten Bienen in der Familie', title: String(siteMetadata.foundingYear) },
+  {
+    label: 'Die ersten Bienen in der Familie',
+    title: String(siteMetadata.foundingYear),
+  },
   { label: 'Aus Freude an den Bienen weitergeführt', title: 'Hobby' },
   { label: 'Familienbetrieb an zwei Standorten', title: 'Heute' },
 ]
@@ -18,13 +21,15 @@ const milestones = [
       <div class="grid min-w-0 grid-cols-2 gap-3.5 max-lg:order-2">
         <NuxtImg
           :src="images.gallery.bayerischerWald"
-          alt="Bienenstöcke auf einer Blumenwiese im Bayerischen Wald"
+          :provider="images.gallery.bayerischerWald.startsWith('/photos/') ? 'ipx' : 'twicpics'"
+          alt="Arbeit an geöffneten Bienenstöcken im Grünen"
           loading="lazy"
           sizes="100vw lg:520px"
           class="col-span-2 aspect-[16/10] size-full rounded-2xl object-cover"
         />
         <NuxtImg
           :src="images.wissen.bienen"
+          :provider="images.wissen.bienen.startsWith('/photos/') ? 'ipx' : 'twicpics'"
           alt="Gesunde Bienen am Einflugloch eines Bienenstocks"
           loading="lazy"
           sizes="50vw lg:260px"
@@ -32,7 +37,8 @@ const milestones = [
         />
         <NuxtImg
           :src="images.wissen.ernte"
-          alt="Honigschleuder zur schonenden Honigernte"
+          :provider="images.wissen.ernte.startsWith('/photos/') ? 'ipx' : 'twicpics'"
+          alt="Imkerin mit einer verdeckelten Honigwabe"
           loading="lazy"
           sizes="50vw lg:260px"
           class="aspect-square size-full rounded-2xl object-cover"

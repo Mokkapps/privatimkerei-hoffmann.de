@@ -2,8 +2,14 @@
 import siteMetadata from '~/siteMetadata'
 
 const facts = [
-  { label: `Jahre Imkerei in der Familie, seit ${siteMetadata.foundingYear}`, value: String(new Date().getFullYear() - siteMetadata.foundingYear) },
-  { label: 'Standorte in Prackenbach und Rattenberg', value: String(siteMetadata.locations.length) },
+  {
+    label: `Jahre Imkerei in der Familie, seit ${siteMetadata.foundingYear}`,
+    value: String(new Date().getFullYear() - siteMetadata.foundingYear),
+  },
+  {
+    label: 'Standorte in Prackenbach und Rattenberg',
+    value: String(siteMetadata.locations.length),
+  },
   { label: 'Medikamente, nur biologische Säuren', value: '0' },
   { label: 'Honig aus unserer Region, ohne Zusätze', value: '100 %' },
 ]

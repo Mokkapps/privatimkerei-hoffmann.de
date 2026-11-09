@@ -2,25 +2,25 @@ import siteMetadata from '../siteMetadata'
 
 /** Pfade relativ zur TwicPics-Quelle (privatimkerei-hoffmann.de) */
 export const images = {
-  bees: '/bees.jpg',
+  bees: '/photos/flugloch.webp',
   gallery: {
-    bayerischerWald: 'galerie-bayerischer-wald.webp',
-    bienenWabe: 'galerie-bienen-wabe.webp',
-    honigernte: 'galerie-honigernte.webp',
-    imkerarbeit: 'galerie-imkerarbeit.webp',
+    bayerischerWald: '/photos/bienenstand.webp',
+    bienenWabe: '/photos/bienenwabe.webp',
+    honigernte: '/photos/honigwabe.webp',
+    imkerarbeit: '/photos/imkerarbeit.webp',
   },
   honey: '/honey.jpg',
   logo: '/logo-v2.1.png',
   me: '/me.jpg',
   products: {
     bienenwachstuecher: 'produkt-bienenwachstuecher.webp',
-    honigCremig: 'produkt-honig-cremig.webp',
-    honigFluessig: 'produkt-honig-fluessig.webp',
+    honigCremig: '/photos/honig-cremig.webp',
+    honigFluessig: '/photos/honig-fluessig.webp',
   },
   regional: '/regional.jpg',
   wissen: {
-    bienen: 'wissen/wissen-bienen.webp',
-    ernte: 'wissen/wissen-ernte.webp',
+    bienen: '/photos/flugloch.webp',
+    ernte: '/photos/honigwabe.webp',
     konsistenz: 'wissen/wissen-konsistenz.webp',
     lagerung: 'wissen/wissen-lagerung.webp',
   },

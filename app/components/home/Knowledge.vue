@@ -32,6 +32,7 @@ const items: Array<AccordionItem> = [
         </p>
         <NuxtImg
           :src="images.wissen.konsistenz"
+          :provider="images.wissen.konsistenz.startsWith('/photos/') ? 'ipx' : 'twicpics'"
           alt="Flüssiger und cremiger Honig in Gläsern"
           loading="lazy"
           sizes="lg:440px"

@@ -9,8 +9,18 @@ export default defineNuxtConfig({
     head: {
       link: [
         { href: '/favicon.ico', rel: 'icon', sizes: '48x48' },
-        { href: '/favicon-32x32.png', rel: 'icon', sizes: '32x32', type: 'image/png' },
-        { href: '/favicon-16x16.png', rel: 'icon', sizes: '16x16', type: 'image/png' },
+        {
+          href: '/favicon-32x32.png',
+          rel: 'icon',
+          sizes: '32x32',
+          type: 'image/png',
+        },
+        {
+          href: '/favicon-16x16.png',
+          rel: 'icon',
+          sizes: '16x16',
+          type: 'image/png',
+        },
         { href: '/apple-touch-icon.png', rel: 'apple-touch-icon', sizes: '180x180' },
       ],
     },
@@ -38,8 +48,17 @@ export default defineNuxtConfig({
 
   image: {
     domains: ['mokkapps.twic.pics'],
+    ipx: {},
     provider: 'twicpics',
-    screens: { '2xl': 1536, 'lg': 1024, 'md': 768, 'sm': 640, 'xl': 1280, 'xs': 320, 'xxl': 1536 },
+    screens: {
+      '2xl': 1536,
+      'lg': 1024,
+      'md': 768,
+      'sm': 640,
+      'xl': 1280,
+      'xs': 320,
+      'xxl': 1536,
+    },
     twicpics: {
       baseURL: siteMetadata.twicPicsBaseUrl,
     },
@@ -92,7 +111,12 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/sitemap.xml', '/robots.txt', '/llms.txt', '/llms-full.txt'],
+      routes: [
+        '/sitemap.xml',
+        '/robots.txt',
+        '/llms.txt',
+        '/llms-full.txt',
+      ],
     },
   },
 

@@ -6,15 +6,24 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 export default withNuxt(
   antfu(
     {
+      typescript: true,
       stylistic: {
         indent: 2,
         quotes: 'single',
         semi: false,
       },
       rules: {
-        'no-console': ['error', { allow: ['warn', 'error', 'log'] }],
+        'no-console': [
+          'error',
+          {
+            allow: ['warn', 'error', 'log'],
+          },
+        ],
         'style/space-before-function-paren': ['error', 'always'],
-        'ts/array-type': ['error', { default: 'generic' }],
+        'ts/array-type': [
+          'error',
+          { default: 'generic' },
+        ],
         'vue/max-attributes-per-line': [
           'error',
           {
@@ -38,7 +47,14 @@ export default withNuxt(
         'perfectionist/sort-imports': [
           'error',
           {
-            groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+            groups: [
+              'builtin',
+              'external',
+              'internal',
+              'parent',
+              'sibling',
+              'index',
+            ],
             newlinesBetween: 1,
           },
         ],

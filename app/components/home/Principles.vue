@@ -24,6 +24,7 @@ const acids = ['Ameisensäure', 'Milchsäure', 'Oxalsäure']
         <article class="relative min-h-110 overflow-hidden rounded-3xl lg:col-span-7 lg:row-span-2 lg:min-h-130">
           <NuxtImg
             :src="images.bees"
+            :provider="images.bees.startsWith('/photos/') ? 'ipx' : 'twicpics'"
             alt="Bienen am Einflugloch eines Bienenstocks"
             loading="lazy"
             sizes="100vw lg:700px"
@@ -50,7 +51,8 @@ const acids = ['Ameisensäure', 'Milchsäure', 'Oxalsäure']
         <article class="relative min-h-80 overflow-hidden rounded-3xl lg:col-span-5">
           <NuxtImg
             :src="images.gallery.honigernte"
-            alt="Frisch geschleuderter Honig fließt durch ein Sieb"
+            :provider="images.gallery.honigernte.startsWith('/photos/') ? 'ipx' : 'twicpics'"
+            alt="Imkerin zeigt eine verdeckelte Honigwabe"
             loading="lazy"
             sizes="100vw lg:500px"
             class="absolute inset-0 size-full object-cover"

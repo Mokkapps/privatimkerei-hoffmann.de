@@ -31,7 +31,7 @@ export const products: Array<Product> = [
     ],
     id: 'honig-fluessig',
     image: images.products.honigFluessig,
-    imageAlt: 'Glas mit flüssigem, goldenem Honig und Honiglöffel auf einem Holztisch',
+    imageAlt: 'Drei Gläser flüssiger Honig auf einem Bienenstock in der Abendsonne',
     name: 'Flüssiger Honig',
     variants: [
       { label: '500 g Glas', price: 7 },
@@ -47,7 +47,7 @@ export const products: Array<Product> = [
     ],
     id: 'honig-cremig',
     image: images.products.honigCremig,
-    imageAlt: 'Geöffnetes Glas mit cremig gerührtem Honig und Holzlöffel',
+    imageAlt: 'Drei Gläser cremiger Honig auf einem Bienenstock',
     name: 'Cremig gerührter Honig',
     variants: [
       { label: '500 g Glas', price: 7 },

@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { images } from '~/data/images'
-import { formatPrice, products } from '~/data/products'
 import siteMetadata from '~/siteMetadata'
-
-const honeyVariant = products[0]!.variants[0]!
 </script>
 
 <template>
@@ -47,6 +44,7 @@ const honeyVariant = products[0]!.variants[0]!
         <div class="aspect-[4/5] overflow-hidden rounded-3xl shadow-xl shadow-neutral-900/15">
           <NuxtImg
             :src="images.me"
+            :provider="images.me.startsWith('/photos/') ? 'ipx' : 'twicpics'"
             alt="Renate Hoffmann lächelt bei der Honigernte neben einem Rahmen mit Honigwaben"
             width="1300"
             height="1733"
@@ -58,16 +56,13 @@ const honeyVariant = products[0]!.variants[0]!
         <div class="absolute bottom-0 left-0 aspect-square w-[42%] overflow-hidden rounded-[22px] border-6 border-default shadow-xl shadow-neutral-900/15">
           <NuxtImg
             :src="images.honey"
+            :provider="images.honey.startsWith('/photos/') ? 'ipx' : 'twicpics'"
             alt="Honigglas der Privatimkerei Hoffmann auf einem Granitstein"
             width="1300"
             height="975"
             sizes="50vw sm:240px"
             class="size-full object-cover"
           />
-        </div>
-        <div class="absolute top-4.5 right-4.5 rounded-2xl bg-surface px-4 py-3 text-[15px] leading-snug text-highlighted shadow-lg">
-          <span class="mb-1 block font-display text-[22px] leading-none font-bold tracking-tight">{{ formatPrice(honeyVariant.price) }}</span>
-          pro {{ honeyVariant.label }}
         </div>
       </div>
     </UContainer>

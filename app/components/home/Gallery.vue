@@ -21,10 +21,10 @@ const galleryImages = [
     src: images.gallery.imkerarbeit,
   },
   {
-    alt: 'Honiggläser richtig gelagert in einem dunklen Regal',
+    alt: 'Drei Gläser flüssiger Honig auf einem Bienenstock in der Abendsonne',
     caption: 'Ins Glas abgefüllt',
     class: 'col-span-2 aspect-video md:aspect-auto',
-    src: images.wissen.lagerung,
+    src: images.products.honigFluessig,
   },
 ]
 </script>
@@ -51,6 +51,7 @@ const galleryImages = [
         >
           <NuxtImg
             :src="image.src"
+            :provider="image.src.startsWith('/photos/') ? 'ipx' : 'twicpics'"
             :alt="image.alt"
             loading="lazy"
             sizes="100vw md:50vw lg:600px"
