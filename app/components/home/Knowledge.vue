@@ -28,7 +28,7 @@ const items: Array<AccordionItem> = [
           Fragen rund um den Honig.
         </h2>
         <p class="section-lead">
-          Hinter jedem Glas stecken jahrelange Imkertradition, fleißige Bienen und sorgfältige Handarbeit. Hier beantworten wir, was Kundinnen und Kunden uns am häufigsten fragen.
+          Bei unserem Hobby lernen wir immer wieder etwas über Bienen und Honig dazu. Hier teilen wir unsere Erfahrungen und beantworten häufige Fragen.
         </p>
         <NuxtImg
           :src="images.wissen.konsistenz"

@@ -16,7 +16,7 @@ const acids = ['Ameisensäure', 'Milchsäure', 'Oxalsäure']
           Gute Bienen machen guten Honig.
         </h2>
         <p class="section-lead">
-          Was als Hobby begann, wächst immer mehr zu einem Familienbetrieb. Drei Dinge sind uns dabei wichtig.
+          Die Imkerei ist unser gemeinsames Hobby. Bei der Arbeit mit unseren Bienen sind uns diese drei Dinge wichtig.
         </p>
       </div>
 
@@ -60,7 +60,7 @@ const acids = ['Ameisensäure', 'Milchsäure', 'Oxalsäure']
           <div class="absolute inset-0 bg-linear-to-b from-black/0 from-35% to-black/75" />
           <div class="relative flex h-full flex-col justify-end gap-2 p-6 text-white sm:p-8">
             <h3 class="text-[clamp(1.625rem,2.8vw,2.25rem)] leading-tight font-bold">
-              Erstklassiger Honig
+              Honig aus eigener Ernte
             </h3>
             <p class="max-w-[30em] text-[17px] text-white/85">
               Kalt geschleudert, schonend gesiebt und direkt ins Glas abgefüllt.

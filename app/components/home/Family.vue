@@ -8,7 +8,7 @@ const milestones = [
     title: String(siteMetadata.foundingYear),
   },
   { label: 'Aus Freude an den Bienen weitergeführt', title: 'Hobby' },
-  { label: 'Familienbetrieb an zwei Standorten', title: 'Heute' },
+  { label: 'Zwei Hobby-Imker in der Familie', title: 'Heute' },
 ]
 </script>
 
@@ -46,15 +46,15 @@ const milestones = [
       </div>
 
       <div class="grid min-w-0 gap-5.5">
-        <span class="eyebrow">Familienbetrieb</span>
+        <span class="eyebrow">Unser Familienhobby</span>
         <h2 class="section-title">
           Seit {{ siteMetadata.foundingYear }} halten wir Bienen.
         </h2>
         <p class="max-w-[36em] text-lg text-muted sm:text-[1.1875rem]">
-          Die Imkertradition reicht in unserer Familie bis ins <strong class="font-semibold text-highlighted">Jahr {{ siteMetadata.foundingYear }}</strong> zurück. Heute führen <strong class="font-semibold text-highlighted">Renate Hoffmann und ihr Sohn Michael</strong> die Imkerei gemeinsam.
+          Die Imkertradition reicht in unserer Familie bis ins <strong class="font-semibold text-highlighted">Jahr {{ siteMetadata.foundingYear }}</strong> zurück. Heute führen <strong class="font-semibold text-highlighted">Renate Hoffmann und ihr Sohn Michael</strong> die Imkerei als gemeinsames Hobby weiter.
         </p>
         <p class="max-w-[36em] text-lg text-muted sm:text-[1.1875rem]">
-          Mit viel Liebe zur Honigbiene und großem Pflegeaufwand arbeiten wir nachhaltig mit gesunden Völkern. Denn nur gesunde Bienen sind ein Garant für unsere Zukunft.
+          Die Freude an den Bienen verbindet uns. Wir verbringen gerne Zeit an unseren Bienenstöcken und geben die Erfahrungen aus unserer Familie weiter.
         </p>
         <ol class="mt-2 grid gap-3 sm:grid-cols-3">
           <li

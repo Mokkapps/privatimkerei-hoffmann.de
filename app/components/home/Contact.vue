@@ -23,10 +23,10 @@ async function copyEmail () {
       <div class="mb-9 grid max-w-170 gap-3.5 sm:mb-14">
         <span class="eyebrow text-primary">Kontakt</span>
         <h2 class="section-title text-forest-100">
-          Wir freuen uns auf Ihre Anfrage.
+          Sprechen Sie uns gerne an.
         </h2>
         <p class="text-lg text-forest-300 sm:text-[1.1875rem]">
-          Am schnellsten geht es telefonisch. An beiden Standorten stehen Bienen unserer Imkerei.
+          Sie haben eine Frage zu unseren Bienen oder möchten Honig abholen? Am einfachsten erreichen Sie uns telefonisch. Da wir die Imkerei in unserer Freizeit betreiben, vereinbaren wir die Abholung nach Absprache.
         </p>
       </div>
 

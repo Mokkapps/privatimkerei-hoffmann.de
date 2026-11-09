@@ -13,11 +13,11 @@ import siteMetadata from '~/siteMetadata'
         </span>
 
         <h1 class="text-[clamp(2.875rem,7.2vw,5.75rem)] leading-[0.98] font-extrabold tracking-[-0.035em] text-balance text-highlighted">
-          Echter Honig aus dem <span class="text-honey-ink">Bayerischen Wald</span>.
+          Unser Hobby, unser Honig aus dem <span class="text-honey-ink">Bayerischen Wald</span>.
         </h1>
 
         <p class="max-w-[34em] text-lg text-muted sm:text-xl">
-          Wir sind <strong class="font-semibold text-highlighted">Renate und Michael Hoffmann</strong>, Mutter und Sohn. An zwei Standorten in Prackenbach und Rattenberg kümmern wir uns um gesunde Bienen und füllen ihren Honig ohne Zusätze ab.
+          Wir sind <strong class="font-semibold text-highlighted">Renate und Michael Hoffmann</strong>, Mutter und Sohn und zwei Hobby-Imker. Wir führen die Imkertradition unserer Familie weiter und kümmern uns in unserer Freizeit um unsere Bienen in Prackenbach und Rattenberg.
         </p>
 
         <div class="flex flex-wrap gap-3">

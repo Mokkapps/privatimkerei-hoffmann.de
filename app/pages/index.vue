@@ -7,7 +7,7 @@ useSeoMeta({
   description: siteMetadata.description,
   ogDescription: siteMetadata.description,
   ogTitle: 'Privatimkerei Hoffmann | Honig aus dem Bayerischen Wald',
-  title: 'Honig aus dem Bayerischen Wald – Imkertradition seit 1890',
+  title: 'Hobby-Imkerei im Bayerischen Wald – Privatimkerei Hoffmann',
 })
 
 useSchemaOrg([
@@ -27,7 +27,7 @@ useSchemaOrg([
 ])
 
 defineOgImage('NuxtSeoSatori', {
-  description: 'Die Imkertradition geht in unserer Familie bis in das Jahr 1890 zurück.',
+  description: 'Zwei Hobby-Imker führen die Familientradition seit 1890 weiter.',
   title: siteMetadata.title,
 })
 </script>

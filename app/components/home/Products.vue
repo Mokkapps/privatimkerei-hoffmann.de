@@ -15,12 +15,12 @@ const steps = [
   >
     <UContainer>
       <div class="mb-9 grid max-w-170 gap-3.5 sm:mb-14">
-        <span class="eyebrow">Produkte</span>
+        <span class="eyebrow">Aus unserer Imkerei</span>
         <h2 class="section-title">
           Direkt vom Imker.
         </h2>
         <p class="section-lead">
-          Alles stammt aus unserer eigenen Imkerei. Sie bestellen per Telefon oder E-Mail und holen nach Absprache bei uns ab.
+          Honig und Bienenwachstücher stammen aus unserer Hobby-Imkerei. Wenn Sie etwas davon mit nach Hause nehmen möchten, melden Sie sich einfach telefonisch oder per E-Mail. Die Abholung vereinbaren wir persönlich.
         </p>
       </div>
 
@@ -34,7 +34,7 @@ const steps = [
       </div>
 
       <ol
-        aria-label="So bestellen Sie"
+        aria-label="So klappt die Abholung"
         class="mt-5 grid overflow-hidden rounded-3xl border border-default bg-surface md:grid-cols-3"
       >
         <li class="grid grid-cols-[40px_1fr] items-start gap-4 px-7 py-6.5">
