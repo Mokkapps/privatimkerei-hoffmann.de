@@ -1,0 +1,37 @@
+name: Docker image
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  docker-image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build standalone production image
+        run: >-
+          docker build
+          --build-arg GITHUB_ACTIONS=true
+          --build-arg SOURCE_COMMIT="$GITHUB_SHA"
+          --build-arg NUXT_PUBLIC_BASE_URL=http://localhost:80
+          -t nuxt-image:test .
+      - name: Start production image
+        run: >-
+          docker run -d --name nuxt-image-test
+          nuxt-image:test
+      - name: Verify production runtime
+        env:
+          SMOKE_PATHS: '["/","/llms.txt"]'
+          EXPECTED_APP_TEXT: 'Hoffmann'
+        run: |
+          docker exec -i -e SMOKE_PATHS="$SMOKE_PATHS" -e EXPECTED_APP_TEXT="$EXPECTED_APP_TEXT" nuxt-image-test node --input-type=module < scripts/check-docker-image.mjs
+      - name: Container logs
+        if: always()
+        run: docker logs nuxt-image-test || true
+      - name: Remove test container
+        if: always()
+        run: docker rm -f nuxt-image-test || true
