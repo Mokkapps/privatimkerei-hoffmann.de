@@ -1,0 +1,17 @@
+.git
+**/node_modules
+**/.nuxt
+**/.output
+**/.data
+**/.turbo
+**/.cache
+.pnpm-store
+**/.env
+**/.env.*
+**/*.env
+**/*.log
+**/playwright-report
+**/test-results
+**/blob-report
+migration/backups
+backlog
