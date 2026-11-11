@@ -50,6 +50,8 @@ const galleryImages = [
           :class="image.class"
         >
           <NuxtImg
+            :placeholder="[24, 24, 40, 3]"
+            placeholder-class="blur-sm"
             :src="image.src"
             :provider="image.src.startsWith('/photos/') ? 'ipx' : 'twicpics'"
             :alt="image.alt"

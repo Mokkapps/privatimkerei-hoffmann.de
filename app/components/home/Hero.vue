@@ -43,6 +43,8 @@ import siteMetadata from '~/siteMetadata'
       <div class="relative min-w-0 max-w-130 pb-8 pl-8 lg:max-w-none lg:pb-10 lg:pl-10">
         <div class="aspect-[4/5] overflow-hidden rounded-3xl shadow-xl shadow-neutral-900/15">
           <NuxtImg
+            :placeholder="[24, 24, 40, 3]"
+            placeholder-class="blur-sm"
             :src="images.me"
             :provider="images.me.startsWith('/photos/') ? 'ipx' : 'twicpics'"
             alt="Renate Hoffmann lächelt bei der Honigernte neben einem Rahmen mit Honigwaben"
@@ -55,6 +57,8 @@ import siteMetadata from '~/siteMetadata'
         </div>
         <div class="absolute bottom-0 left-0 aspect-square w-[42%] overflow-hidden rounded-[22px] border-6 border-default shadow-xl shadow-neutral-900/15">
           <NuxtImg
+            :placeholder="[24, 24, 40, 3]"
+            placeholder-class="blur-sm"
             :src="images.honey"
             :provider="images.honey.startsWith('/photos/') ? 'ipx' : 'twicpics'"
             alt="Honigglas der Privatimkerei Hoffmann auf einem Granitstein"

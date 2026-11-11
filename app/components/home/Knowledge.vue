@@ -31,6 +31,8 @@ const items: Array<AccordionItem> = [
           Bei unserem Hobby lernen wir immer wieder etwas über Bienen und Honig dazu. Hier teilen wir unsere Erfahrungen und beantworten häufige Fragen.
         </p>
         <NuxtImg
+          :placeholder="[24, 24, 40, 3]"
+          placeholder-class="blur-sm"
           :src="images.wissen.konsistenz"
           :provider="images.wissen.konsistenz.startsWith('/photos/') ? 'ipx' : 'twicpics'"
           alt="Flüssiger und cremiger Honig in Gläsern"

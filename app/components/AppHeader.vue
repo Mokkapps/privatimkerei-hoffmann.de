@@ -62,6 +62,8 @@ nuxtApp.hooks.hookOnce('page:finish', () => {
         class="mr-auto flex min-w-0 items-center gap-2.5 sm:gap-3"
       >
         <NuxtImg
+          :placeholder="[24, 24, 40, 3]"
+          placeholder-class="blur-sm"
           :src="images.logo"
           alt=""
           width="84"

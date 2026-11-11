@@ -20,6 +20,8 @@ const milestones = [
     <UContainer class="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-22">
       <div class="grid min-w-0 grid-cols-2 gap-3.5 max-lg:order-2">
         <NuxtImg
+          :placeholder="[24, 24, 40, 3]"
+          placeholder-class="blur-sm"
           :src="images.gallery.bayerischerWald"
           :provider="images.gallery.bayerischerWald.startsWith('/photos/') ? 'ipx' : 'twicpics'"
           alt="Arbeit an geöffneten Bienenstöcken im Grünen"
@@ -28,6 +30,8 @@ const milestones = [
           class="col-span-2 aspect-[16/10] size-full rounded-2xl object-cover"
         />
         <NuxtImg
+          :placeholder="[24, 24, 40, 3]"
+          placeholder-class="blur-sm"
           :src="images.wissen.bienen"
           :provider="images.wissen.bienen.startsWith('/photos/') ? 'ipx' : 'twicpics'"
           alt="Gesunde Bienen am Einflugloch eines Bienenstocks"
@@ -36,6 +40,8 @@ const milestones = [
           class="aspect-square size-full rounded-2xl object-cover"
         />
         <NuxtImg
+          :placeholder="[24, 24, 40, 3]"
+          placeholder-class="blur-sm"
           :src="images.wissen.ernte"
           :provider="images.wissen.ernte.startsWith('/photos/') ? 'ipx' : 'twicpics'"
           alt="Imkerin mit einer verdeckelten Honigwabe"

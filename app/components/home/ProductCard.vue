@@ -27,6 +27,8 @@ const inquiryHref = computed(() => {
   <article class="group flex min-w-0 flex-col gap-5 rounded-3xl border border-default bg-surface p-3 pb-6">
     <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted md:max-lg:group-last:aspect-[2/1]">
       <NuxtImg
+        :placeholder="[24, 24, 40, 3]"
+        placeholder-class="blur-sm"
         :src="product.image"
         :provider="product.image.startsWith('/photos/') ? 'ipx' : 'twicpics'"
         :alt="product.imageAlt"
